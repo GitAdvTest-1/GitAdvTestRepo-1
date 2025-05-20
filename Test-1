@@ -1,0 +1,20 @@
+# main.py
+
+import requests
+
+# WARNING: Hardcoded secret – will be flagged by secret scanners
+API_KEY = "sk_test_51H8eKaExampleHardcodedStripeKey1234567890"
+
+def fetch_data():
+    url = "https://api.example.com/data"
+    headers = {
+        "Authorization": f"Bearer {API_KEY}"
+    }
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        return response.json()
+    return {}
+
+if __name__ == "__main__":
+    data = fetch_data()
+    print(data)
